@@ -50,11 +50,10 @@ app.post('/deploy', upload.single('file'), async (req, res) => {
     );
 
     const deployment = createRes.data;
-    const url = deployment.url || null;
 
     res.json({
       success: true,
-      url: url ? `https://${url}` : null,
+      url: deployment.url ? `https://${deployment.url}` : null,
       raw: deployment
     });
 
